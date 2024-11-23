@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFM Customer Segmentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;700&family=Nunito+Sans:ital,opsz,wght@1,6..12,900&family=Oleo+Script&family=Outfit&family=Roboto&family=Rubik+Doodle+Shadow&family=Ubuntu&display=swap" rel="stylesheet" />
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+
+<style>
+    .about{
+        position: absolute;
+        top:20%;
+        left: 10%;
+        right: 10%;
+        text-align: justify;
+        
+    }
+
+    h1 {
+        color: white;
+    }
+    p{
+        color: white;
+        font-size: 18px;
+    }
+</style>
+<body>
+    <div class="home">
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <div class="logo_image">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/ofcynlwa.json"
+                        trigger="in"
+                        delay="1500"
+                        state="in-growth"
+                        style="width:50px;height:50px">
+                    </lord-icon>
+                </div>
+                <div class="logo_name">RFM Customer Segmentation</div>
+            </div>
+            <ul class="links" id="links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('upload_file')}}">Insert</a></li>
+                <li><a href="{{ url_for('visualize') }}">Visual</a></li>
+                <li><a href="{{ url_for('top_customers') }}">Result</a></li>
+                <li><a href="{{ url_for('about')}}">About</a></li>
+            </ul>
+            <div class="menu">
+                <i class="ri-menu-line ri-2x"></i>
+            </div>
+        </div> 
+        <div class="about">
+        <h1>About Project</h1>
+        <p>
+            The RFM Customer Segmentation and Coupon Generating System is designed to enhance customer engagement and optimize marketing strategies by leveraging data-driven insights. This system uses the RFM (Recency, Frequency, Monetary) model to segment customers based on their purchasing behavior, allowing businesses to tailor their marketing efforts to specific customer needs. By calculating RFM scores from transaction data, the system identifies key customer segments such as Champions, Loyal Customers, and At-Risk Customers.
+            The technology stack includes data processing tools for ingestion and preprocessing, analytics for RFM scoring and segmentation, and a web application framework for user interaction and coupon distribution. The system is scalable and can be adapted for various industries, including e-commerce, retail, financial services, hospitality, and healthcare.
+
+Future enhancements aim to include dynamic RFM scoring, advanced segmentation techniques, improved data integration, and expanded distribution channels. Research areas focus on predicting customer lifetime value, analyzing the long-term impact of personalized marketing, and ethical considerations in data usage.
+
+Overall, the RFM Customer Segmentation and Coupon Generating System provides a robust framework for businesses to leverage customer data, personalize marketing efforts, and enhance customer loyalty and engagement.
+
+
+
+        </p>
+        <br>
+        <p>RFM (Recency, Frequency, Monetary) analysis is a customer segmentation technique used to identify and categorize customers based on their purchasing behavior. This method evaluates customers by examining three key metrics:
+            Recency (R): How recently a customer made a purchase. Customers who have purchased more recently are typically more likely to respond to promotions than those who have not purchased in a while.
+            Frequency (F): How often a customer makes a purchase. Customers who purchase more frequently are considered more loyal and engaged.
+            Monetary (M): How much money a customer spends. Customers who spend more are often seen as more valuable to the business.
+            By scoring customers on these three dimensions, businesses can create distinct customer segments. Each customer receives a score for each dimension, usually on a scale with top being the best. These scores are then combined to create an overall RFM score
+            </p>
+        </div>
+    </div>    
+    <!-- <nav>
+        <label>RFM Customer Segmentation</label>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('upload_file')}}">Insert</a></li>
+            <li><a href="{{ url_for('visualize') }}">Graph</a></li>
+            <li><a href="{{ url_for('top_customers') }}">Result</a></li>
+            <li><a href="{{ url_for('about')}}">About</a></li>
+        </ul>
+    </nav> -->
+    <script>
+        
+        const navbar = document.getElementById("navbar");
+        const menu = document.querySelector(".menu");
+        const links = document.querySelector(".links");
+        
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     if(window.innerWidth < 651){
+        //         menu.style.display = 'flex'
+        //     }
+        // })
+
+        let flag = false;
+        menu.addEventListener("click", function () {
+            // console.log('hi')
+            if (window.innerWidth < 651) {
+            if (!flag) {
+                flag = true;
+                navbar.style.backgroundColor = "black";
+                links.style.display = "flex";
+                links.style.height = "100vh";
+                links.style.transition = "0.5s ease-in";
+            } else {
+                flag = false;
+                navbar.style.backgroundColor = "transparent";
+                links.style.display = "none";
+                links.style.height = "auto";
+            }
+            }
+        });
+   </script>
+</body>
+
+<!--------Footer Section--------->
+
+<div class="page-wrapper"></div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h5>Links</h5>
+                    <ul>
+                        <li><a href="{{ url_for('index')}}">Home</a></li>
+                        <li><a href="{{ url_for('upload_file')}}">Insert</a></li>
+                        <li><a href="{{ url_for('visualize')}}">Graph</a></li>
+                        <li><a href="{{ url_for ('top_customers')}}">Result</a></li>
+                        <li><a href="{{ url_for('about')}}">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="#">+91 9898989898</a></li>
+                        <li><a href="#">rfmcustomer@gmail.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>follow us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+   <div class="footer_end">
+    <div>made by <img src="../static/img/heart.png" alt="heart"> Hardik Patil</div>
+
+
+</html>

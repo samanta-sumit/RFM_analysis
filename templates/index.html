@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFM Customer Segmentation</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;700&family=Nunito+Sans:ital,opsz,wght@1,6..12,900&family=Oleo+Script&family=Outfit&family=Roboto&family=Rubik+Doodle+Shadow&family=Ubuntu&display=swap" rel="stylesheet" />
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+<body>
+    <div class="home">
+        <div class="navbar" id="navbar">
+            <div class="logo">
+                <div class="logo_image">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/ofcynlwa.json"
+                        trigger="in"
+                        delay="1500"
+                        state="in-growth"
+                        style="width:50px;height:50px">
+                    </lord-icon>
+                </div>
+                <div class="logo_name">RFM Customer Segmentation</div>
+            </div>
+            <ul class="links" id="links">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('upload_file')}}">Insert</a></li>
+                <li><a href="{{ url_for('visualize') }}">Visual</a></li>
+                <li><a href="{{ url_for('top_customers') }}">Result</a></li>
+                <li><a href="{{ url_for('about')}}">About</a></li>
+            </ul>
+            <div class="menu">
+                <i class="ri-menu-line ri-2x"></i>
+            </div>
+        </div>    
+    <!-- <nav>
+        <label>RFM Customer Segmentation</label>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('upload_file')}}">Insert</a></li>
+            <li><a href="{{ url_for('visualize') }}">Graph</a></li>
+            <li><a href="{{ url_for('top_customers') }}">Result</a></li>
+            <li><a href="{{ url_for('about')}}">About</a></li>
+        </ul>
+    </nav> -->
+        <div class="content">
+            <h1>RFM Customer Segmentation</h1>
+            <h1>And Coupon Generating System</h1>
+            <h3>Segment Smarter, Market Better</h3>
+            <div class="hero_btn">
+                <a href="{{ url_for('upload_file') }}" class="button"> Get Start</a>
+            </div>
+        </div>
+    </div>
+    
+<!--------RFM Section--------->
+    <div class="rfm">
+        <div>
+            <h2>RFM Metrics</h2>
+        </div>
+
+        <div class="box">
+            <div class="card">
+                <i class="fa-regular fa-clock"></i>
+                <h4>Recency</h4>
+                <!-- <div class="pra"> -->
+                    <p>The freshness of customer activity, be it purchase or visits. E.g. Time since last order or last engaged with the product
+                    </p>
+                    <p style="text-align: center;">
+                        <a class="btn" href="{{ url_for('about')}}">Read More</a>
+                    </p>
+                <!-- </div> -->
+            </div>
+
+        
+
+            <div class="card">
+                <i class="fa-solid fa-rotate-right"></i>
+                <h4>Frequency</h4>
+                <!-- <div class="pra"> -->
+                    <p>The frequency of the customer transactions or visits. E.g. Total number of transactions or average time between transactions/engaged visits
+                        </p>
+                    <p style="text-align: center;">
+                        <a class="btn" href="{{ url_for('about')}}">Read More</a>
+                    </p>
+                <!-- </div> -->
+            </div>
+
+        
+            <div class="card">
+                <i class="fa-regular fa-money-bill-1"></i>
+                <h4>Monetary</h4>
+                <p>The intention of customer to spend or purchasing power of customer.E.g. Total or average transactions value</p>
+                <p style="text-align: center;">
+                    <a class="btn" href="{{ url_for('about')}}">Read More</a>
+                </p>
+            </div>
+        </div>    
+
+    </div>
+
+<!--------Footer Section--------->
+
+<div class="page-wrapper"></div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h5>Links</h5>
+                    <ul>
+                        <li><a href="{{ url_for('index')}}">Home</a></li>
+                        <li><a href="{{ url_for('upload_file')}}">Insert</a></li>
+                        <li><a href="{{ url_for('visualize')}}">Graph</a></li>
+                        <li><a href="{{ url_for ('top_customers')}}">Result</a></li>
+                        <li><a href="{{ url_for('about')}}">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="#">+91 9898989898</a></li>
+                        <li><a href="#">rfmcustomer@gmail.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>follow us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+   <div class="footer_end">
+    <div>made by <img src="../static/img/heart.png" alt="heart"> Hardik Patil</div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script>
+        const navbar = document.getElementById("navbar");
+        const menu = document.querySelector(".menu");
+        const links = document.querySelector(".links");
+
+        let flag = false;
+        menu.addEventListener("click", function () {
+            // console.log('hi')
+            if (window.innerWidth < 651) {
+            if (!flag) {
+                flag = true;
+                navbar.style.backgroundColor = "black";
+                links.style.display = "flex";
+                links.style.height = "100vh";
+                links.style.transition = "0.5s ease-in";
+            } else {
+                flag = false;
+                navbar.style.backgroundColor = "transparent";
+                links.style.display = "none";
+                links.style.height = "auto";
+            }
+            }
+        });
+   </script>
+</html>

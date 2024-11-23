@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@400;700&family=Nunito+Sans:ital,opsz,wght@1,6..12,900&family=Oleo+Script&family=Outfit&family=Roboto&family=Rubik+Doodle+Shadow&family=Ubuntu&display=swap" rel="stylesheet" />
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  </head>
+
+  <style>
+
+    h2{
+        color: white;
+
+    }
+    form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+input[type="file"]::before {
+    content: 'Select File';
+    display: inline-block;
+    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 1px;;
+    outline: none;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 10pt;
+    color: #555;
+}
+
+input[type="file"]:hover::before {
+    border-color: #333;
+}
+
+input[type="submit"] {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 30px;
+	border-radius: 30px;
+    height: 45px;
+	transition: .4s; 
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #e2386e;
+}
+  </style>
+<body>
+<div class="upload">
+  <div class="navbar" id="navbar">
+    <div class="logo">
+        <div class="logo_image">
+            <lord-icon
+                src="https://cdn.lordicon.com/ofcynlwa.json"
+                trigger="in"
+                delay="1500"
+                state="in-growth"
+                style="width:50px;height:50px">
+            </lord-icon>
+        </div>
+        <div class="logo_name">RFM Customer Segmentation</div>
+    </div>
+    <ul class="links" id="links">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('upload_file')}}">Insert</a></li>
+        <li><a href="{{ url_for('visualize') }}">Visual</a></li>
+        <li><a href="{{ url_for('top_customers') }}">Result</a></li>
+        <li><a href="{{ url_for('about')}}">About</a></li>
+    </ul>
+    <div class="menu">
+        <i class="ri-menu-line ri-2x"></i>
+    </div>
+</div> 
+    <!-- <nav>
+        <label>RFM Customer Segmentation</label>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('upload_file')}}">Insert</a></li>
+            <li><a href="{{ url_for('visualize') }}">Graph</a></li>
+            <li><a href="{{ url_for('top_customers') }}">Result</a></li>
+            <li><a href="{{ url_for('about')}}">About</a></li>
+        </ul>
+    </nav> -->
+    <div class="content">
+      <h2>Upload Your Data File</h2>
+      <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file"><br>
+        <input type="submit" value="Upload">
+      </form>
+    </div>
+</div>
+<script>
+  const navbar = document.getElementById("navbar");
+  const menu = document.querySelector(".menu");
+  const links = document.querySelector(".links");
+
+  let flag = false;
+  menu.addEventListener("click", function () {
+      // console.log('hi')
+      if (window.innerWidth < 651) {
+      if (!flag) {
+          flag = true;
+          navbar.style.backgroundColor = "black";
+          links.style.display = "flex";
+          links.style.height = "100vh";
+          links.style.transition = "0.5s ease-in";
+      } else {
+          flag = false;
+          navbar.style.backgroundColor = "transparent";
+          links.style.display = "none";
+          links.style.height = "auto";
+      }
+      }
+  });
+</script>
+</body>
+
+<!--------Footer Section--------->
+
+<div class="page-wrapper"></div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h5>Links</h5>
+                    <ul>
+                        <li><a href="{{ url_for('index')}}">Home</a></li>
+                        <li><a href="{{ url_for('upload_file')}}">Insert</a></li>
+                        <li><a href="{{ url_for('visualize')}}">Graph</a></li>
+                        <li><a href="{{ url_for ('top_customers')}}">Result</a></li>
+                        <li><a href="{{ url_for('about')}}">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="#">+91 9898989898</a></li>
+                        <li><a href="#">rfmcustomer@gmail.com</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h5>follow us</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </footer>
+   <div class="footer_end">
+    <div>made by <img src="../static/img/heart.png" alt="heart"> Hardik Patil</div>
+</html>
